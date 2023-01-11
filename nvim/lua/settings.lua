@@ -39,7 +39,7 @@ o.signcolumn = "yes"
 o.lazyredraw = false
 o.timeoutlen = 250
 o.showmode = false
-o.colorcolumn = 80
+o.colorcolumn = "80"
 --o.shortmess = "filnxtToOFWIcC"
 
 -- o.foldexpr = "nvim_treesitter#foldexpr()"
@@ -47,5 +47,3 @@ o.colorcolumn = 80
 -- o.foldmethod = "expr"
 
 vim.opt.list = true
-
-o.colo = "kanagawa"

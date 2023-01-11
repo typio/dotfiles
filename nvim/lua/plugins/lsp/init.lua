@@ -23,7 +23,7 @@ return {
 				severity_sort = true,
 			})
 
-			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+			local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
 
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
@@ -70,7 +70,9 @@ return {
 					nls.builtins.formatting.black,
 					nls.builtins.formatting.clang_format,
 					nls.builtins.formatting.eslint,
-					nls.builtins.formatting.prettier,
+					nls.builtins.formatting.prettier.with({
+						extra_filetypes = { "svelte" },
+					}),
 					nls.builtins.formatting.shfmt,
 					nls.builtins.formatting.stylua,
 					nls.builtins.formatting.yamlfmt,

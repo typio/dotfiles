@@ -22,7 +22,15 @@ return {
 		event = "VeryLazy",
 	},
 	{ "EdenEast/nightfox.nvim", event = "VeryLazy" },
-	{ "ellisonleao/gruvbox.nvim", event = "VeryLazy" },
+	{
+		"ellisonleao/gruvbox.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("gruvbox").setup({
+				contrast = "hard",
+			})
+		end,
+	},
 	{
 		"mbbill/undotree",
 		cmd = { "UndotreeShow", "UndotreeToggle", "UndotreeHide", "UndotreeFocus" },

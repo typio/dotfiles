@@ -28,11 +28,23 @@ keymap("n", "<C-s>", "<cmd> w <CR>")
 
 keymap("i", "<C-z>", "<C-O>u")
 
+-- sadism
+keymap({ "n", "v", "i" }, "<Up>", "<Nop>")
+keymap({ "n", "v", "i" }, "<Right>", "<Nop>")
+keymap({ "n", "v", "i" }, "<Down>", "<Nop>")
+keymap({ "n", "v", "i" }, "<Left>", "<Nop>")
+
 -- open netrw
 keymap("n", "<leader>pv", vim.cmd.Ex)
 
--- run alacritty opacity toggle exec
-keymap("n", "<C-o>", "<cmd>! ~/.config/alacritty/toggle_opacity.sh<CR>")
+-- run opacity toggle exec
+keymap("n", "<C-o>", "<cmd>! ~/.config/wezterm/toggle_opacity.sh<CR>")
+
+-- buffers
+keymap("n", "<Leader>b", ":ls<CR>:b<Space>")
+keymap("n", "<C-n>", ":bnext<CR>")
+keymap("n", "<C-p>", ":bprev<CR>")
+keymap("n", "<C-x>", ":bd<CR>")
 
 -- nitpicky stuff
 keymap("n", "J", "mzJ`z")
@@ -41,8 +53,10 @@ keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
 
+-- paste without losing register
+keymap("n", "<leader>p", '"_dP')
+
 -- better indentation
---
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 
@@ -87,18 +101,6 @@ local leader = {
     ["o"] = { "<cmd> Telescope oldfiles <CR>", "Old Files" },
     ["c"] = { "<cmd> Telescope colorscheme <CR>", "Colorschemes" },
     ["p"] = { "<cmd> Telescope planets <CR>", "Planets" },
-  },
-  ["b"] = {
-    name = "+buffer",
-    ["d"] = { "<cmd>bd<CR>", "Delete Buffer" },
-    ["n"] = { "<cmd>BufferLineCycleNext<CR>", "Next Buffer" },
-    ["p"] = { "<cmd>BufferLineCyclePrev<CR>", "Prev Buffer" },
-    ["c"] = { "<cmd>BufferLinePickClose<CR>", "Close Buffer" },
-    ["m"] = {
-      name = "+move",
-      ["n"] = { "<cmd>BufferLineMoveNext", "Next Buffer" },
-      ["p"] = { "<cmd>BufferLineMovePrev", "Prev Buffer" },
-    },
   },
   ["o"] = {
     name = "+open",
