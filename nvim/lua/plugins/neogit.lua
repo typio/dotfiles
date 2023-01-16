@@ -4,12 +4,12 @@ return {
   config = function()
     require("neogit").setup({
       kind = "split",
-      signs = {
-        -- { CLOSED, OPENED }
-        section = { "c", "C" },
-        item = { "i", "I" },
-        hunk = { "h", "H" },
-      },
+      -- signs = {
+      --   -- { CLOSED, OPENED }
+      --   section = { ">", "v" },
+      --   item = { ">", "v" },
+      --   hunk = { "", "" },
+      -- },
       integrations = { diffview = true },
     })
   end,
