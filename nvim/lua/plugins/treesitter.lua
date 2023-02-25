@@ -29,6 +29,7 @@ function M.config()
             "vim",
             "yaml",
             "wgsl",
+            "zig",
         },
 
         sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)

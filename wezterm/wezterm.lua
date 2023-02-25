@@ -5,7 +5,7 @@ return {
 
     font = wezterm.font("Cascadia Code PL", { weight = "DemiBold" }),
     font_size = 14,
-    window_background_opacity = 1,
+    window_background_opacity = 0.85,
 
     enable_tab_bar = false,
 

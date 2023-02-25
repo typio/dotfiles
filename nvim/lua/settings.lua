@@ -46,4 +46,4 @@ o.colorcolumn = "80"
 -- o.foldlevel = 6
 -- o.foldmethod = "expr"
 
-vim.opt.list = true
+o.list = true
