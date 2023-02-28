@@ -1,52 +1,52 @@
-local M = {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = "BufReadPost",
-    dependencies = {
-        { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
-    },
-}
-
-function M.config()
-    require("nvim-treesitter.configs").setup({
-        -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+return {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    build = ':TSUpdate',
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        -- A list of parser names, or 'all'
         ensure_installed = {
-            "bash",
-            "c",
-            "cpp",
-            "help",
-            "java",
-            "javascript",
-            "json",
-            "lua",
-            "markdown",
-            "markdown_inline",
-            "python",
-            "regex",
-            "rust",
-            "svelte",
-            "typescript",
-            "vim",
-            "yaml",
-            "wgsl",
-            "zig",
+          'help',
+          'lua',
+          'rust',
+          'toml',
+          "bash",
+          "c",
+          "cpp",
+          "java",
+          "javascript",
+          "json",
+          "markdown",
+          "markdown_inline",
+          "python",
+          "regex",
+          "svelte",
+          "typescript",
+          "yaml",
+          "wgsl",
+          "zig",
         },
 
-        sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-        -- ignore_install = { "javascript" }, -- List of parsers to ignore installing
-        autopairs = {
-            enable = true,
-        },
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = true,
+
         highlight = {
-            enable = true, -- false will disable the whole extension
-            -- disable = { "c", "rust" },  -- list of language that will be disabled
-            -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-            -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-            -- Using this option may slow down your editor, and you may see some duplicate highlights.
-            -- Instead of true it can also be a list of languages
-            additional_vim_regex_highlighting = true,
-        },
-    })
-end
+          -- `false` will disable the whole extension
+          enable = true,
+          disable = { 'tex', 'latex', 'lean' },
 
-return M
+          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+          -- Using this option may slow down your editor, and you may see some duplicate highlights.
+          -- Instead of true it can also be a list of languages
+          additional_vim_regex_highlighting = false,
+        },
+      }
+    end
+  }
+}

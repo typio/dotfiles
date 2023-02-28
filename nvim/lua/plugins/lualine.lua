@@ -1,65 +1,65 @@
-local M = {
-  "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
-}
+return {
+  {
+    'nvim-lualine/lualine.nvim',
+    lazy = false,
+    config = function()
+      local theme, _ = require("core.colors")
+      -- TODO: Make background transparent for lualine
+      local lualine_theme
 
-function M.config()
-  require("lualine").setup({
-    options = {
-      icons_enabled = true,
-      theme = "auto",
-      disabled_filetypes = {
-        statusline = {},
-        winbar = {},
-      },
-      ignore_focus = {},
-      always_divide_middle = true,
-      globalstatus = false,
-      refresh = {
-        statusline = 1000,
-        tabline = 1000,
-        winbar = 1000,
-      },
-    },
-    sections = {
-      lualine_a = { "mode" },
-      lualine_b = {
-        "branch",
-        "diff",
-        {
-          "diagnostics",
-          sections = { "error", "warn", "info", "hint" },
+      if theme.theme_name == "tokyonight" then
+        lualine_theme = "palenight"
+      elseif theme.theme_name == "jellybeans" then
+        lualine_theme = "powerline"
+      end
 
-          diagnostics_color = {
-            -- Same values as the general color option can be used here.
-            error = "DiagnosticError", -- Changes diagnostics' error color.
-            warn = "DiagnosticWarn", -- Changes diagnostics' warn color.
-            info = "DiagnosticInfo", -- Changes diagnostics' info color.
-            hint = "DiagnosticHint", -- Changes diagnostics' hint color.
-          },
-          colored = true, -- Displays diagnostics status in color if set to true.
-          update_in_insert = false, -- Update diagnostics in insert mode.
-          always_visible = false, -- Show diagnostics even if there are none.
+      require('lualine').setup({
+        options = {
+          icons_enabled = true,
+          theme = lualine_theme,
+          section_separators = { left = '', right = '' },
+          component_separators = { left = '', right = '' },
+          disabled_filetypes = {},
         },
-      },
-      lualine_c = { "filename" },
-      lualine_x = { "encoding", "filetype" },
-      lualine_y = { "progress" },
-      lualine_z = { "location" },
-    },
-    inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = { "filename" },
-      lualine_x = { "location" },
-      lualine_y = {},
-      lualine_z = {},
-    },
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {},
-  })
-end
-
-return M
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch' },
+          lualine_c = {
+            {
+              'filename',
+              file_status = true, -- displays file status (readonly status, modified status)
+              path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+            },
+          },
+          lualine_x = {
+            {
+              'diagnostics',
+              sources = { 'nvim_diagnostic' },
+              symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' },
+            },
+            'encoding',
+            'filetype',
+          },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' },
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {
+            {
+              'filename',
+              file_status = true, -- displays file status (readonly status, modified status)
+              path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+            },
+          },
+          lualine_x = { 'location' },
+          lualine_y = {},
+          lualine_z = {},
+        },
+        tabline = {},
+        extensions = { 'fugitive' },
+      })
+    end
+  }
+}

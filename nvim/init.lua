@@ -1,50 +1,60 @@
-require("settings")
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"--single-branch",
-		"https://github.com/folke/lazy.nvim.git",
-		lazypath,
-	})
-end
-
-vim.opt.runtimepath:prepend(lazypath)
-
-require("lazy").setup("plugins", {
-	defaults = { lazy = true },
-	install = { colorscheme = { "kanagawa" } },
-	checker = { enabled = true },
-	change_detection = {
-		notify = false,
-	},
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				"matchit",
-				"matchparen",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
-	-- debug = true,
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 60 }
+  end
 })
 
-vim.api.nvim_create_autocmd("User", {
-	pattern = "VeryLazy",
-	callback = function()
-		require("keymaps")
-		require("commands")
-	end,
+-- Remove trailing whitespace
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  pattern = '*',
+  command = [[%s/\s\+$//e]]
+})
+
+-- Make sure to set 'mapleader' before lazy so your mappings are correct
+vim.g.mapleader = ' '
+
+-- Bootstraps lazy.nvim
+-- Github Link:
+-- https://github.com/folke/lazy.nvim
+local lazypath = vim.fn.stdpath('data') .. 'lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim',
+    -- '--branch=stable',
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  spec = {
+    { import = 'plugins' },
+  },
+  performance = {
+    cache = { enabled = true },
+    rtp = {
+      disabled_plugins = {
+        'gzip',
+        'matchit',
+        'netrwPlugin',
+        'rplugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+      }
+    }
+  },
 })
 
 vim.cmd([[
-au BufNewFile,BufRead *.wgsl set filetype=wgsl
+    au BufNewFile,BufRead *.wgsl set filetype=wgsl
 ]])
+
+require('core.mappings')
+require('core.options')

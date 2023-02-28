@@ -1,9 +1,9 @@
 local function keymap(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts)
-    end
-    vim.keymap.set(mode, lhs, rhs, options)
+	local options = { noremap = true, silent = true }
+	if opts then
+		options = vim.tbl_extend("force", options, opts)
+	end
+	vim.keymap.set(mode, lhs, rhs, options)
 end
 
 local wk = require("which-key")
@@ -11,9 +11,9 @@ local wk = require("which-key")
 vim.o.timeoutlen = 250
 
 wk.setup({
-    show_help = false,
-    show_keys = false,
-    key_labels = { ["<leader>"] = "SPC" },
+	show_help = false,
+	show_keys = false,
+	key_labels = { ["<leader>"] = "SPC" },
 })
 
 -- better moving keys
@@ -38,7 +38,7 @@ keymap({ "n", "v", "i" }, "<Left>", "<Nop>")
 keymap("n", "<leader>pv", vim.cmd.Ex)
 
 -- run opacity toggle exec
-keymap("n", "<C-o>", "<cmd>! ~/.config/wezterm/toggle_opacity.sh<CR>")
+keymap("n", "<C-o>", "<cmd>! ~/.config/wezterm/toggle_opacity.sh<CR><CR>")
 
 -- buffers
 keymap("n", "<Leader>b", ":ls<CR>:b<Space>")
@@ -89,38 +89,38 @@ keymap("t", "<C-Left>", "<cmd>vertical resize -2<CR>")
 keymap("t", "<C-Right>", "<cmd>vertical resize +2<CR>")
 
 local leader = {
-    ["f"] = {
-        name = "+telescope",
-        ["f"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
-        ["g"] = { "<cmd> Telescope git_files <CR>", "Find Git Files" },
-        ["a"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All Files" },
-        ["e"] = { "<cmd> Telescope file_browser <CR>", "File Browser" },
-        ["s"] = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
-        ["b"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
-        ["h"] = { "<cmd> Telescope help_tags <CR>", "Help Tags" },
-        ["o"] = { "<cmd> Telescope oldfiles <CR>", "Old Files" },
-        ["c"] = { "<cmd> Telescope colorscheme <CR>", "Colorschemes" },
-        ["p"] = { "<cmd> Telescope planets <CR>", "Planets" },
-        ["j"] = { "<cmd> Telescope emoji <CR>", "Emoji" },
-    },
-    ["o"] = {
-        name = "+open",
-        ["t"] = { "<cmd> ToggleTerm size=20<CR>", "Terminal" },
-        ["d"] = { "<cmd> DiffviewOpen<CR>", "DiffView" },
-        ["g"] = { "<cmd> Neogit<CR>", "Neogit" },
-    },
-    ["u"] = { "<cmd> UndotreeToggle<CR>", "Undo Tree" },
-    ["g"] = {
-        name = "+goto",
-        ["d"] = { "<cmd> Telescope lsp_definitions<CR>", "Definition" },
-        ["i"] = { "<cmd> Telescope lsp_implementation<CR>", "Implementation" },
-        ["r"] = { "<cmd> Telescope lsp_references<CR>", "References" },
-    },
-    ["c"] = {
-        name = "+code",
-        ["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-        ["f"] = { "<cmd> FormatWrite<CR>", "Format Document" },
-    },
+	["f"] = {
+		name = "+telescope",
+		["f"] = { "<cmd> Telescope find_files <CR>", "Find Files" },
+		["g"] = { "<cmd> Telescope git_files <CR>", "Find Git Files" },
+		["a"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find All Files" },
+		["e"] = { "<cmd> Telescope file_browser <CR>", "File Browser" },
+		["s"] = { "<cmd> Telescope live_grep <CR>", "Live Grep" },
+		["b"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
+		["h"] = { "<cmd> Telescope help_tags <CR>", "Help Tags" },
+		["o"] = { "<cmd> Telescope oldfiles <CR>", "Old Files" },
+		["c"] = { "<cmd> Telescope colorscheme <CR>", "Colorschemes" },
+		["p"] = { "<cmd> Telescope planets <CR>", "Planets" },
+		["j"] = { "<cmd> Telescope emoji <CR>", "Emoji" },
+	},
+	["o"] = {
+		name = "+open",
+		["t"] = { "<cmd> ToggleTerm size=20<CR>", "Terminal" },
+		["d"] = { "<cmd> DiffviewOpen<CR>", "DiffView" },
+		["g"] = { "<cmd> Neogit<CR>", "Neogit" },
+	},
+	["u"] = { "<cmd> UndotreeToggle<CR>", "Undo Tree" },
+	["g"] = {
+		name = "+goto",
+		["d"] = { "<cmd> Telescope lsp_definitions<CR>", "Definition" },
+		["i"] = { "<cmd> Telescope lsp_implementation<CR>", "Implementation" },
+		["r"] = { "<cmd> Telescope lsp_references<CR>", "References" },
+	},
+	["c"] = {
+		name = "+code",
+		["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+		["f"] = { "<cmd> FormatWrite<CR>", "Format Document" },
+	},
 }
 
 wk.register(leader, { prefix = "<leader>" })

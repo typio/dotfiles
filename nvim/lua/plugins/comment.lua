@@ -1,21 +1,10 @@
 return {
-	"terrortylor/nvim-comment",
-	keys = { { "gc", mode = { "n", "v" }, "gcc" } },
-
-	config = function()
-		require("nvim_comment").setup({
-			-- Linters prefer comment and line to have a space in between markers
-			marker_padding = true,
-			-- should comment out empty or whitespace only lines
-			comment_empty = true,
-			-- Should key mappings be created
-			create_mappings = true,
-			-- Normal mode mapping left hand side
-			line_mapping = "gcc",
-			-- Visual/Operator mapping left hand side
-			operator_mapping = "gc",
-			-- Hook function to call before commenting takes place
-			hook = nil,
-		})
-	end,
+  {
+    'numToStr/Comment.nvim',
+    keys = {
+      { '<leader>/', '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>',                 desc = 'Comment: Comment out current line' },
+      { '<leader>/', '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', desc = 'Comment: Comment out visual selection',     mode = 'v' },
+    },
+    opts = { options = {} },
+  }
 }

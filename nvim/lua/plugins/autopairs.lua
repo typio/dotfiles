@@ -1,10 +1,13 @@
 return {
-	"windwp/nvim-autopairs",
-	event = "BufReadPre",
-
-	config = function()
-		local npairs = require("nvim-autopairs")
-
-		npairs.setup({})
-	end,
+  {
+    'windwp/nvim-autopairs',
+    lazy = false,
+    -- opts auto runs setup
+    opts = {
+      options = {
+        fast_wrap = {},
+        disable_filetype = { 'TelescopePrompt', 'vim' }
+      }
+    },
+  },
 }
