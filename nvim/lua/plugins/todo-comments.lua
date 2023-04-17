@@ -1,23 +1,16 @@
-local M = {
-	"folke/todo-comments.nvim",
-	event = "BufReadPost",
-	config = {},
-	keys = {
-		{
-			"]t",
-			function()
-				require("todo-comments").jump_next()
-			end,
-			desc = "Next todo comment",
-		},
-		{
-			"[t",
-			function()
-				require("todo-comments").jump_prev()
-			end,
-			desc = "Previous todo comment",
-		},
-	},
-}
+return {
+    {
+        'folke/todo-comments.nvim',
+        event = 'BufReadPost',
+        dependencies = 'nvim-lua/plenary.nvim',
+        keys = {
+            { ']t', function() require('todo-comments').jump_next() end, desc = 'Todo-Comments: Go to next comment' },
+            { '[t', function() require('todo-comments').jump_prev() end, desc = 'Todo-Comments: Go to previous comment' },
+        },
+        config = function ()
+            require("todo-comments").setup {
 
-return M
+            }
+        end
+    }
+}

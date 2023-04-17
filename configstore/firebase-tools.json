@@ -1,0 +1,37 @@
+{
+	"analytics-uuid": "3db35920-4451-449b-8d19-9e84efe9dde4",
+	"motd": {
+		"cloudBuildErrorAfter": 1594252800000,
+		"cloudBuildWarnAfter": 1590019200000,
+		"defaultNode10After": 1594252800000,
+		"minVersion": "3.0.5",
+		"node8DeploysDisabledAfter": 1613390400000,
+		"node8RuntimeDisabledAfter": 1615809600000,
+		"node8WarnAfter": 1600128000000,
+		"fetched": 1680738227037
+	},
+	"usage": true,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "103166934837063646034",
+		"email": "tomsemail2100@gmail.com",
+		"email_verified": true,
+		"at_hash": "E2UYVrwKnMzrIGtr2KCmwA",
+		"iat": 1680738240,
+		"exp": 1680741840
+	},
+	"tokens": {
+		"expires_at": 1680741839199,
+		"access_token": "ya29.a0Ael9sCNfkWRrJiwQRBTJt2FzfWMG97mvh3s66eO9xPyFPfvNQkzEXraSor0y_G2HnH0MtSYxIiYnI-J1VLDC-LvGwmNYwV8B0BWsWvl2esSB3yQCbnXzNV36TNapRvXov2fRz5j1zrjr0SEOjd_I-sTIVNPjc7U_TUCwaCgYKAecSARASFQF4udJhtD_eFta8Mz5FBYTiaOJPsA0171",
+		"expires_in": 3599,
+		"refresh_token": "1//06I935-6WVCw-CgYIARAAGAYSNwF-L9IrsXLRvBhMs-KhZuOak6aGEr96fwhqEGgBgu7Ik7SxNzfiMPg6LTtjpgFc_EAbh5llSYg",
+		"scope": "https://www.googleapis.com/auth/userinfo.email openid https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFjZGEzNjBmYjM2Y2QxNWZmODNhZjgzZTE3M2Y0N2ZmYzM2ZDExMWMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzMTY2OTM0ODM3MDYzNjQ2MDM0IiwiZW1haWwiOiJ0b21zZW1haWwyMTAwQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiRTJVWVZyd0tuTXpySUd0cjJLQ213QSIsImlhdCI6MTY4MDczODI0MCwiZXhwIjoxNjgwNzQxODQwfQ.B1U5j_SvgtyfZdbZtX9ZCs0-6U2HYbcyMxUG4UFIDZpTBeKGAOu75q_zphgGnKiogkIVTh5oahPilbp5cz3bXb978SjBqWFzNiOMa3GoZhpw7xafMuKTiEMV1HGR_KwE_D94Z0l1FEAdpldNKtNqGXYtV3IXfm1guhNrdbfx-Qm4DD0X36tX3Pxl9W5whX2_UFqpw8VI6H9tDNStlepsvNx3ujx3lSe3n7AlgnmB9sO0D0dX5BU5UjPbNSoNXYS9JyykCf6FrRycFpQLj-EGlCc6g946SaQ75A9vhXZGp7pKzbL_Nd244fZnRPqq-7QD_JAxdwLexHXBBtD55DYzSA"
+	},
+	"activeProjects": {
+		"/Users/elthomas/Desktop/dev/ascent": "ascent-d6e5e"
+	}
+}

@@ -12,15 +12,16 @@ return {
       { '<leader>5', '<cmd>lua require("bufferline").go_to_buffer(5)<CR>', desc = 'Bufferline: Go to 5' },
       { '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6)<CR>', desc = 'Bufferline: Go to 6' },
       { '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7)<CR>', desc = 'Bufferline: Go to 7' },
-      { '<leader>b', ":ls<CR>:b<Space>",                                   desc = 'Bufferline: List buffers' },
-      { '<C-n>',     ":bnext<CR>",                                         desc = 'Bufferline: Next buffer' },
-      { '<C-p>',     ":bprev<CR>",                                         desc = 'Bufferline: Previous buffer' },
-      { '<C-x>',     ":bd<CR>",                                            desc = 'Bufferline: Close buffer' },
+      { '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(7)<CR>', desc = 'Bufferline: Go to 8' },
+      { '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(7)<CR>', desc = 'Bufferline: Go to 9' },
+      { '<C-n>', ':bnext<CR>', desc = 'Bufferline: Previous buffer' },
+      { '<C-p>', ':bprev<CR>', desc = 'Bufferline: Close buffer' },
     },
     opts = {
       options = {
         numbers = 'ordinal',
-        diagnostics = 'nvim_lsp', }
+        diagnostics = 'nvim_lsp',
+      }
     },
   }
 }

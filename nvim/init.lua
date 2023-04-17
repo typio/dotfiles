@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
   callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 60 }
+    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 90 }
   end
 })
 
@@ -12,8 +12,20 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   command = [[%s/\s\+$//e]]
 })
 
+-- Return to last edit position when opening files
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = '*',
+  callback = function()
+    if vim.fn.line("'\"") > 0 and vim.fn.line("'\"") <= vim.fn.line('$') then
+      vim.fn.setpos('.', vim.fn.getpos("'\""))
+      vim.api.nvim_feedkeys('zz', 'n', true)
+    end
+  end
+})
+
 -- Make sure to set 'mapleader' before lazy so your mappings are correct
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- Bootstraps lazy.nvim
 -- Github Link:
@@ -25,7 +37,7 @@ if not vim.loop.fs_stat(lazypath) then
     'clone',
     '--filter=blob:none',
     'https://github.com/folke/lazy.nvim',
-    -- '--branch=stable',
+    '--branch=stable',
     lazypath,
   })
 end
@@ -35,6 +47,8 @@ require("lazy").setup({
   spec = {
     { import = 'plugins' },
   },
+  defaults = { lazy = true },
+  checker = { enabled = true },
   performance = {
     cache = { enabled = true },
     rtp = {

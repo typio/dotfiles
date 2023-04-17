@@ -1,10 +1,9 @@
 return {
-  {
-    'folke/which-key.nvim',
-    lazy = false,
-    config = function ()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end
+  'folke/which-key.nvim',
+  lazy = false,
+  opts = {
+    show_help = false,
+    show_keys = false,
+    key_labels = { ['<leader>'] = 'SPC' },
   }
 }
