@@ -1,0 +1,50 @@
+# [[language]]
+# name = "javascript"
+# file-types = ["js", "mjs", "cjs"]
+
+# [[language]]
+# name = "jsx"
+# scope = "source.jsx"
+# injection-regex = "jsx"
+# language-id = "javascriptreact"
+# file-types = ["jsx"]
+# roots = []
+# comment-token = "//"
+# language-servers = [ "typescript-language-server" ]
+# indent = { tab-width = 2, unit = "  " }
+# grammar = "javascript"
+
+[[language]]
+name = "typescript"
+scope = "source.ts"
+injection-regex = "(ts|typescript)"
+file-types = ["ts", "mts", "cts"]
+language-server = { command = "typescript-language-server", args = ["--stdio"], language-id = "typescript"}
+
+[[grammar]]
+name = "typescript"
+source = { git = "https://github.com/tree-sitter/tree-sitter-typescript", rev = "6aac031ad88dd6317f02ac0bb27d099a553a7d8c", subpath = "typescript" }
+
+[[language]]
+name = "tsx"
+scope = "source.tsx"
+injection-regex = "(tsx)" # |typescript
+# language-id = "typescriptreact"
+file-types = ["tsx"]
+language-server = { command = "typescript-language-server", args = ["--stdio"], language-id = "typescriptreact" }
+
+[[grammar]]
+name = "tsx"
+source = { git = "https://github.com/tree-sitter/tree-sitter-typescript", rev = "6aac031ad88dd6317f02ac0bb27d099a553a7d8c", subpath = "tsx" }
+
+[[language]]
+name = "json"
+scope = "source.json"
+injection-regex = "json"
+file-types = ["json", "jsonc", "arb", "ipynb", "geojson"]
+auto-format = true
+language-server = { command = "vscode-json-language-server", args = ["--stdio"] }
+
+[[grammar]]
+name = "json"
+source = { git = "https://github.com/tree-sitter/tree-sitter-json", rev = "73076754005a460947cafe8e03a8cf5fa4fa2938" }
